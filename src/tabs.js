@@ -80,7 +80,7 @@ class UncontrolledTabs extends Component {
 UncontrolledTabs.propTypes = {
   children: PropTypes.node,
   defaultTabId: PropTypes.any.isRequired,
-  onTabChange: PropTypes.func.isRequired
+  onTabChange: PropTypes.func
 }
 
 export default function Tabs (props) {
