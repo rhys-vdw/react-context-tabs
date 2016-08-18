@@ -56,7 +56,7 @@ import React from 'react'
 import { Tab, TabList, Tabs, TabPanel } from 'react-context-tabs'
 
 function getHash() {
-  return window.location.hash.slice(1);
+  return window.location.hash.slice(1)
 }
 
 class HashControlledTabs extends Component {
@@ -64,28 +64,28 @@ class HashControlledTabs extends Component {
   constructor(props) {
     super(props)
     this.state = { selectedTabId: getHash() }
-    this.handleHashChange = this.handleHashChange.bind(this);
-    this.handleTabChange = this.handleTabChange.bind(this);
+    this.handleHashChange = this.handleHashChange.bind(this)
+    this.handleTabChange = this.handleTabChange.bind(this)
   }
 
   componentDidMount() {
-    window.onhashchange = this.handleHashChange;
+    window.onhashchange = this.handleHashChange
   }
 
   componentWillUnmount() {
-    window.onhashchange = null;
+    window.onhashchange = null
   }
 
   handleHashChange(event) {
-    this.setState({ selectedTabId: getHash() });
+    this.setState({ selectedTabId: getHash() })
   }
 
   handleTabChange(nextTab, prevTab) {
-    window.location.hash = nextTab;
+    window.location.hash = nextTab
   }
 
   render() {
-    const { selectedTabId } = this.state;
+    const { selectedTabId } = this.state
 
     return (
       <Tabs
@@ -107,7 +107,7 @@ class HashControlledTabs extends Component {
           </span>
         </TabPanel>
       </Tabs>
-    );
+    )
   }
 }
 
@@ -163,7 +163,7 @@ function CharacterInformation({ warrior, wizard }) {
         </TabList>
       </section>
     </Tabs>
-  );
+  )
 }
 ```
 
