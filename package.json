@@ -1,0 +1,25 @@
+{
+  "name": "react-context-tabs",
+  "version": "1.0.0",
+  "description": "Flexible tab components for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usabilityhub/react-context-tabs.git"
+  },
+  "keywords": [
+    "react",
+    "tabs",
+    "tab",
+    "context"
+  ],
+  "author": "Rhys van der Waerden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usabilityhub/react-context-tabs/issues"
+  },
+  "homepage": "https://github.com/usabilityhub/react-context-tabs#readme"
+}
