@@ -1,7 +1,7 @@
-import PersistentTabPanel from './persistent-tab-panel'
-import Tab from './tab'
-import Tabs from './tabs'
-import TabList from './tab-list'
-import TabPanel from './tab-panel'
+import PersistentTabPanel from './PersistentTabPanel';
+import Tab from './Tab'
+import Tabs from './Tabs'
+import TabList from './TabList'
+import TabPanel from './TabPanel'
 
 export { PersistentTabPanel, Tab, Tabs, TabList, TabPanel }

@@ -8,6 +8,17 @@ Flexible tabs for React.
 npm install react-context-tabs
 ```
 
+## Import
+
+```js
+// Pull all components into the build...
+import { Tab, TabList, TabPanel, Tabs } from 'react-context-tabs'
+
+// ...Or import them individually.
+import Tab from 'react-context-tabs/Tab'
+import TabList from 'react-context-tabs/TabList'
+```
+
 ## Examples
 
 ### Basic example
