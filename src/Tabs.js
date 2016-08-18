@@ -63,7 +63,7 @@ class UncontrolledTabs extends Component {
       children,
       defaultTabId, onTabChange, // eslint-disable-line no-unused-vars
       ...rest
-    } = this.props;
+    } = this.props
 
     return (
       <ControlledTabs
