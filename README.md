@@ -180,8 +180,10 @@ Parent container to which child components are passed. `Tabs` can be either "[co
 ```jsx
 // controlled
 <Tabs
-  selectedTabId={this.state.selectedTabID}
-  onTabChange={(nextTabId, prevTabId) => this.setState(nextTabId)}
+  selectedTabId={this.state.selectedTabId}
+  onTabChange={(nextTabId, prevTabId) =>
+    this.setState({ selectedTadId: nextTabId })
+  }
 >
   {/* ... */}
 </Tabs>
