@@ -1,10 +1,13 @@
 {
   "name": "react-context-tabs",
-  "version": "1.0.0",
-  "description": "Flexible tab components for React",
-  "main": "index.js",
+  "version": "1.0.0-alpha",
+  "description": "Flexible tabs for React",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard src/**/*.js",
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,20 @@
   "bugs": {
     "url": "https://github.com/usabilityhub/react-context-tabs/issues"
   },
-  "homepage": "https://github.com/usabilityhub/react-context-tabs#readme"
+  "homepage": "https://github.com/usabilityhub/react-context-tabs#readme",
+  "peerDependencies": {
+    "react": "15.x"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "shallowequal": "^0.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "standard": "^7.1.2",
+    "webpack": "^1.13.2"
+  }
 }
