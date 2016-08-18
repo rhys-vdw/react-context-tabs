@@ -52,7 +52,7 @@ export default function TabExample() {
 `Tabs` can be either "[controlled](https://facebook.github.io/react/docs/forms.html#controlled-components)" or "[uncontrolled](https://facebook.github.io/react/docs/forms.html#uncontrolled-components)". Controlled tabs require a `selectedTabId` property.
 
 ```jsx
-import React from 'react'
+import React, { Component } from 'react'
 import { Tab, TabList, Tabs, TabPanel } from 'react-context-tabs'
 
 function getHash() {
