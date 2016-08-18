@@ -59,12 +59,19 @@ class UncontrolledTabs extends Component {
   }
 
   render () {
+    const {
+      children,
+      defaultTabId, onTabChange, // eslint-disable-line no-unused-vars
+      ...rest
+    } = this.props;
+
     return (
       <ControlledTabs
         selectedTabId={this.state.selectedTabId}
         onTabChange={this.handleTabChange}
+        {...rest}
       >
-        {this.props.children}
+        {children}
       </ControlledTabs>
     )
   }
