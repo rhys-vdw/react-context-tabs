@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard src/**/*.js",
-    "build": "babel src --out-dir lib",
-    "prepublish": "npm run build"
+    "build": "babel src --out-dir lib && cp -r src/styles lib/styles",
+    "prepublish": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
