@@ -178,6 +178,29 @@ function CharacterInformation({ warrior, wizard }) {
 }
 ```
 
+## Styles
+
+A base style sheet is included in the build at [`/lib/styles/base.css`](src/styles/base.css). This just sets appropriate cursor and removes default list styles (for the `TabList`). You'll still need to write your own CSS to make the tabs look how you want.
+
+Each component has a default class name that is the same as its component name. eg:
+
+```html
+<div class="Tabs">
+  <ul class="TabList">
+    <li class="Tab">First</li>
+    <li class="Tab">Second</li>
+  </ul>
+  <section className="TabPanel">
+    First content
+  </section>
+  <section className="TabPanel">
+    Second content
+  </section>
+</div>
+```
+
+_Note that `PersistentTabPanel` and `TabPanel` both have the same class: `TabPanel`._
+
 ## Component API
 
 ### `Tabs`
