@@ -187,15 +187,17 @@ Each component has a default class name that is the same as its component name. 
 ```html
 <div class="Tabs">
   <ul class="TabList">
-    <li class="Tab">First</li>
+    <li class="Tab isSelected">First</li>
     <li class="Tab">Second</li>
   </ul>
   <section className="TabPanel">
     First content
   </section>
+<!--
   <section className="TabPanel">
     Second content
   </section>
+-->
 </div>
 ```
 
