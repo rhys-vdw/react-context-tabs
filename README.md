@@ -1,25 +1,32 @@
 # React context tabs
 
-Flexible tabs for React.
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-## Installation
+A flexible and unopinionated tab interface for React. Tabs and panes to be provided in any order or nesting. Inactive panels can be either unmounted or just hidden from view. Includes an optional minimal base stylesheet, but leaves aesthetics up to you.
+
+## Table of Contents
+ - [Install](#install)
+ - [Usage](#usage)
+   - [Basic example](#basic-example)
+   - [Controlled tabs](#controlled-tabs)
+   - [Nesting](#nesting)
+ - [Styles](#styles)
+ - [API](#api)
+   - [`Tabs`](#tabs)
+   - [`TabList`](#tablist)
+   - [`Tab`](#tab)
+   - [`TabPanel`](#tabpanel)
+   - [`PersistentTabPanel`](#persistenttabpanel)
+- [Contribute](#contribute)
+- [License](#license)
+
+## Install
 
 ```console
-npm install react-context-tabs
+npm install react-context-tabs --save
 ```
 
-## Import
-
-```js
-// Pull all components into the build...
-import { Tab, TabList, TabPanel, Tabs } from 'react-context-tabs'
-
-// ...Or import them individually.
-import Tab from 'react-context-tabs/Tab'
-import TabList from 'react-context-tabs/TabList'
-```
-
-## Examples
+## Usage
 
 ### Basic example
 
@@ -203,15 +210,16 @@ Each component has a default class name that is the same as its component name. 
 
 _Note that `PersistentTabPanel` and `TabPanel` both have the same class: `TabPanel`._
 
-## Component API
+## API
 
 ### `Tabs`
 
-- `defaultTabId`: `any` - The `tabId` of the initially selected tab when uncontrolled.
-- `selectedTabId`: `any` - The `tabId` of the currently selected tab when controlled.
-- `onTabChange`: `(nextTabId, prevTabId) =>` - Called when the tab changes. Optional for uncontrolled tabs.
-
 Parent container to which child components are passed. `Tabs` can be either "[controlled](https://facebook.github.io/react/docs/forms.html#controlled-components)" or "[uncontrolled](https://facebook.github.io/react/docs/forms.html#uncontrolled-components)". Supply either `defaultTabId` for uncontrolled or `selectedTabId` for controlled.
+
+```js
+import { Tabs } from 'react-context-tabs'
+import Tabs from 'react-context-tabs/Tabs'
+```
 
 ```jsx
 // controlled
@@ -228,12 +236,21 @@ Parent container to which child components are passed. `Tabs` can be either "[co
 <Tabs defaultTabId={initialTabId}>
   {/* ... */}
 </Tabs>
-
 ```
+
+#### Props
+- `defaultTabId`: `any` - The `tabId` of the initially selected tab when uncontrolled.
+- `selectedTabId`: `any` - The `tabId` of the currently selected tab when controlled.
+- `onTabChange`: `(nextTabId, prevTabId) =>` - Called when the tab changes. Optional for uncontrolled tabs.
 
 ### `TabList`
 
 A wrapper component for `Tab`s. This is just a `ul`.
+
+```js
+import { TabList } from 'react-context-tabs'
+import TabList from 'react-context-tabs/TabList'
+```
 
 ```jsx
 <TabList>
@@ -245,11 +262,12 @@ A wrapper component for `Tab`s. This is just a `ul`.
 
 ### `Tab`
 
-- `tabId`: `any` - The ID of the `TabPanel` to show when clicked.
-- `disabled`: `bool` - Disallow clicking on this tab.
-- `tabindex`: `number` - Allow this tab to be selected with <kbd>tab</kbd>. See [MDN `tabindex` reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
-
 An individual tab. Has CSS class `Tab`, and `isSelected` or `isDisabled`.
+
+```js
+import { Tab } from 'react-context-tabs'
+import Tab from 'react-context-tabs/Tab'
+```
 
 ```jsx
 <Tab tabId='home'>
@@ -258,13 +276,21 @@ An individual tab. Has CSS class `Tab`, and `isSelected` or `isDisabled`.
 </Tab>
 ```
 
-### `TabPanel`
+#### Props
+- `tabId`: `any` - The ID of the `TabPanel` to show when clicked.
+- `disabled`: `bool` - Disallow clicking on this tab.
+- `tabindex`: `number` - Allow this tab to be selected with <kbd>tab</kbd>. See [MDN `tabindex` reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex).
 
-- `tabId`: `any` - The ID of the `Tab` that will reveal this panel.
+### `TabPanel`
 
 Container for each tab's content. `TabPanel`s are removed from the DOM when inactive.
 
 `TabPanel` can be used as children of a [`ReactCSSTransitionGroup`](https://facebook.github.io/react/docs/animation.html#high-level-api-reactcsstransitiongroup).
+
+```js
+import { TabPanel } from 'react-context-tabs'
+import TabPanel from 'react-context-tabs/TabPanel'
+```
 
 ```jsx
 <TabPanel tabId='avatar'>
@@ -273,10 +299,27 @@ Container for each tab's content. `TabPanel`s are removed from the DOM when inac
 </TabPanel>
 ```
 
-### `PersistentTabPanel`
-
+#### Props
 - `tabId`: `any` - The ID of the `Tab` that will reveal this panel.
+
+### `PersistentTabPanel`
 
 An alternative to `TabPanel`. `PersistentTabPanel` is *not* removed from the DOM when inactive. Instead it is set to `display: none`. Children will not be rendered until the tab is first revealed.
 
 These panels are useful for tabs that are computationally expensive to render, or need to persist internal state while deselected.
+
+```js
+import { PersistentTabPanel } from 'react-context-tabs'
+import PersistenTabPanel from 'react-context-tabs/PersistenTabPanel'
+```
+
+#### Props
+- `tabId`: `any` - The ID of the `Tab` that will reveal this panel.
+
+## Contribute
+
+Questions, bug reports and pull requests welcome. See [GitHub issues](https://github.com/usabilityhub/react-context-tabs/issues).
+
+## License
+
+MIT
