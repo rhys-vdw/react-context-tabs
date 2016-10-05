@@ -310,7 +310,7 @@ These panels are useful for tabs that are computationally expensive to render, o
 
 ```js
 import { PersistentTabPanel } from 'react-context-tabs'
-import PersistenTabPanel from 'react-context-tabs/PersistenTabPanel'
+import PersistentTabPanel from 'react-context-tabs/PersistentTabPanel'
 ```
 
 #### Props
