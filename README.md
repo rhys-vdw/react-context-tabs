@@ -115,12 +115,12 @@ class HashControlledTabs extends Component {
           <Tab tabId='sad'>Sad</Tab>
         </TabList>
         <TabPanel tabId='happy'>
-          <span style={{ fontSize: 100, transform: 'rotate(0.25turn)' }}>
+          <span style={{ fontSize: '100px', transform: 'rotate(0.25turn)' }}>
             :)
           </span>
         </TabPanel>
         <TabPanel tabId='sad'>
-          <span style={{ fontSize: 100, transform: 'rotate(0.25turn)' }}>
+          <span style={{ fontSize: '100px', transform: 'rotate(0.25turn)' }}>
             :(
           </span>
         </TabPanel>
