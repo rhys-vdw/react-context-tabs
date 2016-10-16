@@ -108,7 +108,7 @@ class HashControlledTabs extends Component {
     return (
       <Tabs
         selectedTabId={selectedTabId}
-        handleTabChange={this.handleTabChange}
+        onTabChange={this.handleTabChange}
       >
         <TabList>
           <Tab tabId='happy'>Happy</Tab>
