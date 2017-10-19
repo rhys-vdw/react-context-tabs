@@ -1,3 +1,6 @@
+**1.2.1** - _2017-10-20_
+ - Fix React peer dependency version range.
+
 **1.2.0** - _2017-10-19_
  - Update babel preset.
  - Use `prop-types` instead of `React.PropTypes`.

@@ -1,6 +1,6 @@
 {
   "name": "react-context-tabs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Flexible tabs for React",
   "main": "lib/index.js",
   "scripts": {
