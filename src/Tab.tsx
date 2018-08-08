@@ -3,7 +3,7 @@ import { Context } from "./Context";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-interface Props {
+export interface Props {
   readonly handleClick: MouseEventHandler<HTMLLIElement>;
   readonly disabled?: boolean;
   readonly tabId: any;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Context } from "./Context";
 
-interface Props {
+export interface Props {
   className?: string;
   tabId: any;
 }

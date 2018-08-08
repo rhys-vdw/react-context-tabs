@@ -2,7 +2,7 @@ import React, { StatelessComponent, HTMLAttributes } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-type Props = HTMLAttributes<HTMLUListElement>;
+export type Props = HTMLAttributes<HTMLUListElement>;
 
 export const TabList: StatelessComponent<Props> = (props) => {
   const { children, className, ...rest } = props;

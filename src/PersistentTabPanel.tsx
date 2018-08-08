@@ -4,7 +4,7 @@ import classNames from "classnames";
 import shallowEqual from "shallowequal";
 import { Context } from "./Context";
 
-interface Props {
+export interface Props {
   readonly tabId: any;
   readonly className?: string;
 }
