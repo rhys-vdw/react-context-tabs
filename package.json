@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "typscript src --out-dir lib && cp -r src/styles lib/styles"
+    "build": "typscript src --out-dir lib && cp -r src/styles lib/styles",
+    "lint": "tslint --project tsconfig.json --format stylish",
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "@types/react": "^16.4.8",
     "@types/shallowequal": "^0.2.3",
     "prop-types": "^15.6.0",
+    "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   }
 }
