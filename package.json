@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "typscript src --out-dir lib && cp -r src/styles lib/styles",
+    "build": "tsc",
     "lint": "tslint --project tsconfig.json --format stylish",
     "prepublishOnly": "npm run lint && npm run build"
   },
