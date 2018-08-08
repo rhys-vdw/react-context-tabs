@@ -35,7 +35,7 @@ export class Tab extends Component<Props> {
   }
 
   render() {
-    const { children, className, disabled, tabId, ...rest } = this.props;
+    const { className, disabled, tabId, ...rest } = this.props;
     const { selectedTabId } = this.context;
 
     return (
@@ -46,9 +46,7 @@ export class Tab extends Component<Props> {
         })}
         onClick={this.handleClick}
         {...rest}
-      >
-        {children}
-      </li>
+      />
     );
   }
 }
