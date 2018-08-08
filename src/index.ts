@@ -1,4 +1,3 @@
-export { Context } from "./Context";
 export { ControlledTabs, Props as ControlledTabsProps } from "./ControlledTabs";
 export { PersistentTabPanel, Props as PersistentTabPanelProps } from "./PersistentTabPanel";
 export { Tab, Props as TabProps } from "./Tab";

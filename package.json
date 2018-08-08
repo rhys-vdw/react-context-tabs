@@ -29,8 +29,7 @@
     "react": "15.x.x || 16.x.x"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "shallowequal": "^0.2.2"
+    "classnames": "^2.2.5"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",

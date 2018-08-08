@@ -1,7 +1,7 @@
 import React, { StatelessComponent } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Context } from "./Context";
+import { Consumer, Context } from "./Context";
 import { TabId } from "./TabId";
 
 export interface Props {
@@ -9,12 +9,16 @@ export interface Props {
   tabId: TabId;
 }
 
-export const TabPanel: StatelessComponent<Props> = (props, { selectedTabId }: Context) => {
+export const TabPanel: StatelessComponent<Props> = (props) => {
   const { children, className, tabId } = props;
-  return tabId !== selectedTabId ? null : (
-    <section className={classNames("TabPanel", className)}>
-      {children}
-    </section>
+  return (
+    <Consumer>
+      {({ selectedTabId }) => tabId !== selectedTabId ? null : (
+        <section className={classNames("TabPanel", className)}>
+          {children}
+        </section>
+      )}
+    </Consumer>
   );
 };
 
@@ -22,7 +26,3 @@ TabPanel.propTypes = {
   className: PropTypes.string,
   tabId: PropTypes.any.isRequired
 } as any;
-
-TabPanel.contextTypes = {
-  selectedTabId: PropTypes.any
-};

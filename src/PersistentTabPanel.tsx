@@ -1,67 +1,60 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent, StatelessComponent } from "react";
 import classNames from "classnames";
-import shallowEqual from "shallowequal";
-import { Context } from "./Context";
+import { Consumer } from "./Context";
 import { TabId } from "./TabId";
+
+export interface ImplProps {
+  readonly className?: string;
+  readonly isSelected: boolean;
+}
+
+interface State {
+  readonly shouldRender: boolean;
+}
+
+class PersistentTabPanelImpl extends PureComponent<ImplProps, State> {
+  state: State = {
+    shouldRender: this.props.isSelected,
+  };
+
+  componentWillReceiveProps(nextProps: ImplProps) {
+    if (!this.props.isSelected && nextProps.isSelected) {
+      this.setState({ shouldRender: true });
+    }
+  }
+
+  render() {
+    if (!this.state.shouldRender) {
+      return null;
+    }
+
+    const { children, className, isSelected } = this.props;
+
+    return (
+        <section
+          className={classNames("TabPanel", className)}
+          style={{ display: isSelected ? undefined : "none" }}
+        >
+          {children}
+        </section>
+    );
+  }
+}
 
 export interface Props {
   readonly tabId: TabId;
   readonly className?: string;
 }
 
-interface State {
-  readonly isSelected: boolean;
-  readonly shouldRender: boolean;
-}
-
-export class PersistentTabPanel extends Component<Props, State> {
-  static propTypes = {
-    children: PropTypes.node,
-    tabId: PropTypes.any.isRequired,
-  };
-
-  static contextTypes = {
-    selectedTabId: PropTypes.any,
-  };
-
-  state: State = {
-    isSelected: this.props.tabId === this.context.selectedTabId,
-    shouldRender: this.props.tabId === this.context.selectedTabId,
-  };
-
-  componentWillReceiveProps(nextProps: Props, nextContext: Context) {
-    const isSelected = nextContext.selectedTabId === nextProps.tabId;
-    if (isSelected && !this.state.shouldRender) {
-      this.setState({ shouldRender: true });
-    }
-    this.setState({ isSelected });
-  }
-
-  shouldComponentUpdate(nextProps: Props, nextState: State, nextContext: Context) {
-    if (!this.state.isSelected && !nextState.isSelected) {
-      return false;
-    }
-    return (
-      !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.context, nextContext)
-    );
-  }
-
-  render() {
-    if (!this.state.shouldRender) {
-      return false;
-    }
-
-    const { children, className } = this.props;
-    const { isSelected } = this.state;
-
-    return (
-      <section className={classNames("TabPanel", className)}
-        style={{ display: isSelected ? undefined : "none" }}
-      >
-        {children}
-      </section>
-    );
-  }
-}
+export const PersistentTabPanel: StatelessComponent<Props> = ({ tabId, className }) => {
+  return (
+    <Consumer>{
+      ({ selectedTabId }) => (
+        <PersistentTabPanelImpl
+          isSelected={selectedTabId === tabId}
+          className={className}
+        />
+      )
+    }</Consumer>
+  );
+};

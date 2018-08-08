@@ -1,6 +1,6 @@
 import React, { ChildContextProvider, Component } from "react";
 import PropTypes from "prop-types";
-import { Context } from "./Context";
+import { Provider } from "./Context";
 import { TabId } from "./TabId";
 
 export interface Props {
@@ -8,7 +8,7 @@ export interface Props {
   readonly selectedTabId: TabId;
 }
 
-export class ControlledTabs extends Component<Props> implements ChildContextProvider<Context> {
+export class ControlledTabs extends Component<Props> {
 
   static propTypes = {
     children: PropTypes.node,
@@ -16,30 +16,23 @@ export class ControlledTabs extends Component<Props> implements ChildContextProv
     selectedTabId: PropTypes.any.isRequired,
   };
 
-  static childContextTypes = {
-    selectedTabId: PropTypes.any,
-    setSelectedTabId: PropTypes.func.isRequired,
-  };
-
   private setSelectedTabId = (tabId: TabId) => {
     const { onTabChange, selectedTabId } = this.props;
     onTabChange(tabId, selectedTabId);
   }
 
-  getChildContext(): Context {
-    return {
-      selectedTabId: this.props.selectedTabId,
-      setSelectedTabId: this.setSelectedTabId,
-    };
-  }
-
   render() {
     const {
-      onTabChange,
+      onTabChange, // unused
       selectedTabId,
-      ...rest
+      children,
     } = this.props;
+    const { setSelectedTabId } = this;
 
-    return <div {...rest} />;
+    return (
+      <Provider value={{ selectedTabId, setSelectedTabId }}>
+        {children}
+      </Provider>
+    );
   }
 }

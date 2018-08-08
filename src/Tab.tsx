@@ -1,14 +1,13 @@
-import React, { Component, MouseEventHandler } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Context } from "./Context";
+import { Consumer } from "./Context";
 import { TabId } from "./TabId";
 
 export interface Props {
-  readonly handleClick: MouseEventHandler<HTMLLIElement>;
+  readonly className?: string;
   readonly disabled?: boolean;
   readonly tabId: TabId;
-  readonly className?: string;
 }
 
 export class Tab extends Component<Props> {
@@ -19,34 +18,28 @@ export class Tab extends Component<Props> {
     tabId: PropTypes.any.isRequired,
   };
 
-  static contextTypes = {
-    selectedTabId: PropTypes.any,
-    setSelectedTabId: PropTypes.func.isRequired,
-  };
-
-  context!: Context;
-
-  private handleClick: MouseEventHandler<HTMLLIElement> = (event) => {
-    const { selectedTabId, setSelectedTabId } = this.context;
-    const { disabled, tabId } = this.props;
-    if (selectedTabId !== tabId && !disabled) {
-      setSelectedTabId(tabId);
-    }
-  }
-
   render() {
     const { className, disabled, tabId, ...rest } = this.props;
-    const { selectedTabId } = this.context;
 
     return (
-      <li
-        className={classNames("Tab", className, {
-          isDisabled: disabled,
-          isSelected: selectedTabId === tabId,
-        })}
-        onClick={this.handleClick}
-        {...rest}
-      />
+      <Consumer>
+        {({ selectedTabId, setSelectedTabId }) => {
+          const isSelected = selectedTabId === tabId;
+          const clickHandler = () => {
+            setSelectedTabId(tabId);
+          };
+          return (
+            <li
+              className={classNames("Tab", className, {
+                isDisabled: disabled,
+                isSelected
+              })}
+              onClick={disabled || isSelected ? undefined : clickHandler}
+              {...rest}
+            />
+          );
+        }}
+      </Consumer>
     );
   }
 }
