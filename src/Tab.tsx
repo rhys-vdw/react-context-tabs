@@ -9,6 +9,7 @@ interface Props {
   readonly tabId: any;
   readonly className?: string;
 }
+
 export class Tab extends Component<Props> {
   static propTypes = {
     children: PropTypes.node.isRequired,
