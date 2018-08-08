@@ -14,7 +14,7 @@ interface State {
   readonly shouldRender: boolean;
 }
 
-export class PersistentTabPanel extends Component<Props, State, Context> {
+export class PersistentTabPanel extends Component<Props, State> {
   static propTypes = {
     children: PropTypes.node,
     tabId: PropTypes.any.isRequired,
