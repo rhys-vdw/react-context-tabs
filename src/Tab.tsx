@@ -27,7 +27,7 @@ export class Tab extends Component<Props> {
   private handleClick: MouseEventHandler<HTMLLIElement> = (event) => {
     const { selectedTabId, setSelectedTabId } = this.context;
     const { disabled, tabId } = this.props;
-    if (!(selectedTabId === tabId) && !disabled) {
+    if (selectedTabId !== tabId && !disabled) {
       setSelectedTabId(tabId);
     }
   }
