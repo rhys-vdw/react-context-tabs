@@ -1,12 +1,13 @@
 import React, { Component, MouseEventHandler } from "react";
-import { Context } from "./Context";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { Context } from "./Context";
+import { TabId } from "./TabId";
 
 export interface Props {
   readonly handleClick: MouseEventHandler<HTMLLIElement>;
   readonly disabled?: boolean;
-  readonly tabId: any;
+  readonly tabId: TabId;
   readonly className?: string;
 }
 

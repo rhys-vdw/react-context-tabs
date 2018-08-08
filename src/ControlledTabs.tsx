@@ -21,7 +21,7 @@ export class ControlledTabs extends Component<Props> implements ChildContextProv
     setSelectedTabId: PropTypes.func.isRequired,
   };
 
-  private setSelectedTabId = (tabId: any) => {
+  private setSelectedTabId = (tabId: TabId) => {
     const { onTabChange, selectedTabId } = this.props;
     onTabChange(tabId, selectedTabId);
   }

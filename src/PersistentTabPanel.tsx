@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import shallowEqual from "shallowequal";
 import { Context } from "./Context";
+import { TabId } from "./TabId";
 
 export interface Props {
-  readonly tabId: any;
+  readonly tabId: TabId;
   readonly className?: string;
 }
 

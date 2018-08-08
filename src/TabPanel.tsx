@@ -2,10 +2,11 @@ import React, { StatelessComponent } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Context } from "./Context";
+import { TabId } from "./TabId";
 
 export interface Props {
   className?: string;
-  tabId: any;
+  tabId: TabId;
 }
 
 export const TabPanel: StatelessComponent<Props> = (props, { selectedTabId }: Context) => {
