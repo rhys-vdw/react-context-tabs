@@ -1,3 +1,6 @@
+**2.0.0-alpha2** - _2018-01-10_
+ - Change TypeScript target to ES3
+
 **2.0.0-alpha** - _2018-01-09_
  - Use current React context API.
  - Convert to TypeScript.
