@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { ControlledTabs } from "./ControlledTabs";
 import { TabId } from "./TabId";
 
@@ -13,12 +12,6 @@ interface State {
 }
 
 export class UncontrolledTabs extends Component<Props, State> {
-  static propTypes = {
-    children: PropTypes.node,
-    defaultTabId: PropTypes.any.isRequired,
-    onTabChange: PropTypes.func
-  };
-
   state: Readonly<State> = { selectedTabId: this.props.defaultTabId };
 
   private handleTabChange = (selectedTabId: TabId, previousTabId: TabId) => {
@@ -32,7 +25,8 @@ export class UncontrolledTabs extends Component<Props, State> {
   render() {
     const {
       children,
-      defaultTabId, onTabChange, // eslint-disable-line no-unused-vars
+      defaultTabId, // unused
+      onTabChange, // unused
       ...rest
     } = this.props;
 

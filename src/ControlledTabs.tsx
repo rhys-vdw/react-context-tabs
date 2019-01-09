@@ -1,5 +1,4 @@
-import React, { ChildContextProvider, Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Provider } from "./Context";
 import { TabId } from "./TabId";
 
@@ -9,13 +8,6 @@ export interface Props {
 }
 
 export class ControlledTabs extends Component<Props> {
-
-  static propTypes = {
-    children: PropTypes.node,
-    onTabChange: PropTypes.func.isRequired,
-    selectedTabId: PropTypes.any.isRequired,
-  };
-
   private setSelectedTabId = (tabId: TabId) => {
     const { onTabChange, selectedTabId } = this.props;
     onTabChange(tabId, selectedTabId);

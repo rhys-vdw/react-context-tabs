@@ -1,5 +1,5 @@
-import { TabId } from "./TabId";
 import React from "react";
+import { TabId } from "./TabId";
 
 export interface Context {
   readonly selectedTabId: TabId;
@@ -8,5 +8,5 @@ export interface Context {
 
 export const { Consumer, Provider } = React.createContext<Context>({
   selectedTabId: undefined!,
-  setSelectedTabId: () => { /* empty */},
+  setSelectedTabId: () => {/* empty */},
 });

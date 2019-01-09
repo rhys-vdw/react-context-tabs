@@ -1,15 +1,15 @@
-import React, { StatelessComponent } from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Consumer, Context } from "./Context";
+import React, { ReactNode } from "react";
+import { Consumer } from "./Context";
 import { TabId } from "./TabId";
 
 export interface Props {
   className?: string;
   tabId: TabId;
+  children: ReactNode;
 }
 
-export const TabPanel: StatelessComponent<Props> = (props) => {
+export function TabPanel(props: Props) {
   const { children, className, tabId } = props;
   return (
     <Consumer>
@@ -20,9 +20,4 @@ export const TabPanel: StatelessComponent<Props> = (props) => {
       )}
     </Consumer>
   );
-};
-
-TabPanel.propTypes = {
-  className: PropTypes.string,
-  tabId: PropTypes.any.isRequired
-} as any;
+}

@@ -1,5 +1,5 @@
-import React, { PureComponent, StatelessComponent } from "react";
 import classNames from "classnames";
+import React, { PureComponent, ReactNode } from "react";
 import { Consumer } from "./Context";
 import { TabId } from "./TabId";
 
@@ -18,7 +18,7 @@ class PersistentTabPanelImpl extends PureComponent<ImplProps, State> {
   };
 
   componentWillReceiveProps(nextProps: ImplProps) {
-    if (!this.props.isSelected && nextProps.isSelected) {
+    if (!this.state.shouldRender && nextProps.isSelected) {
       this.setState({ shouldRender: true });
     }
   }
@@ -31,12 +31,12 @@ class PersistentTabPanelImpl extends PureComponent<ImplProps, State> {
     const { children, className, isSelected } = this.props;
 
     return (
-        <section
-          className={classNames("TabPanel", className)}
-          style={{ display: isSelected ? undefined : "none" }}
-        >
-          {children}
-        </section>
+      <section
+        className={classNames("TabPanel", className)}
+        style={isSelected ? undefined : { display: "none" }}
+      >
+        {children}
+      </section>
     );
   }
 }
@@ -44,17 +44,20 @@ class PersistentTabPanelImpl extends PureComponent<ImplProps, State> {
 export interface Props {
   readonly tabId: TabId;
   readonly className?: string;
+  readonly children: ReactNode;
 }
 
-export const PersistentTabPanel: StatelessComponent<Props> = ({ tabId, className }) => {
+export function PersistentTabPanel({ tabId, children, className }: Props) {
   return (
     <Consumer>{
       ({ selectedTabId }) => (
         <PersistentTabPanelImpl
           isSelected={selectedTabId === tabId}
           className={className}
-        />
+        >
+          {children}
+        </PersistentTabPanelImpl>
       )
     }</Consumer>
   );
-};
+}
