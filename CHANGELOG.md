@@ -1,3 +1,9 @@
+**2.0.0-alpha** - _2018-01-09_
+ - Use current React context API.
+ - Convert to TypeScript.
+ - Always update `PersistentTabPanel` even when invisible.
+ - Remove prop-types.
+
 **1.2.1** - _2017-10-20_
  - Fix React peer dependency version range.
 
