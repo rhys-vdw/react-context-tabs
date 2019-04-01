@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Consumer } from "./Context";
 import { TabId } from "./TabId";
 
@@ -7,6 +7,7 @@ export interface Props {
   readonly className?: string;
   readonly disabled?: boolean;
   readonly tabId: TabId;
+  readonly children: ReactNode;
 }
 
 export function Tab(props: Props) {

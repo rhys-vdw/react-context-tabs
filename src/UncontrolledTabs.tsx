@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import { ControlledTabs } from "./ControlledTabs";
 import { TabId } from "./TabId";
 
 export interface Props {
-  defaultTabId: TabId;
-  onTabChange?: (nextTabId: TabId, prevTabId: TabId) => void;
+  readonly defaultTabId: TabId;
+  readonly onTabChange?: (nextTabId: TabId, prevTabId: TabId) => void;
+  readonly children?: ReactNode;
 }
 
 interface State {
@@ -20,7 +21,7 @@ export class UncontrolledTabs extends Component<Props, State> {
     if (onTabChange !== undefined) {
       onTabChange(selectedTabId, previousTabId);
     }
-  }
+  };
 
   render() {
     const {
