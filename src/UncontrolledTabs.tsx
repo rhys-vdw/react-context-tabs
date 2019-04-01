@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import { ControlledTabs } from "./ControlledTabs";
 import { TabId } from "./TabId";
 
 export interface Props {
   readonly defaultTabId: TabId;
   readonly onTabChange?: (nextTabId: TabId, prevTabId: TabId) => void;
+  readonly children?: ReactNode;
 }
 
 interface State {
