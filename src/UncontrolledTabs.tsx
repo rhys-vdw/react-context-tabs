@@ -20,7 +20,7 @@ export class UncontrolledTabs extends Component<Props, State> {
     if (onTabChange !== undefined) {
       onTabChange(selectedTabId, previousTabId);
     }
-  }
+  };
 
   render() {
     const {
