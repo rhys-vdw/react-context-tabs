@@ -1,3 +1,6 @@
+**2.0.0-alpha3** - _2018-04-01_
+ - Include `children` in `Tabs` and `Tab` props.
+
 **2.0.0-alpha2** - _2018-01-10_
  - Change TypeScript target to ES3
 
