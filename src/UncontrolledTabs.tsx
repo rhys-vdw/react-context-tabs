@@ -3,8 +3,8 @@ import { ControlledTabs } from "./ControlledTabs";
 import { TabId } from "./TabId";
 
 export interface Props {
-  defaultTabId: TabId;
-  onTabChange?: (nextTabId: TabId, prevTabId: TabId) => void;
+  readonly defaultTabId: TabId;
+  readonly onTabChange?: (nextTabId: TabId, prevTabId: TabId) => void;
 }
 
 interface State {
