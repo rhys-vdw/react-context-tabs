@@ -12,7 +12,7 @@ export class ControlledTabs extends Component<Props> {
   private setSelectedTabId = (tabId: TabId) => {
     const { onTabChange, selectedTabId } = this.props;
     onTabChange(tabId, selectedTabId);
-  };
+  }
 
   render() {
     const {
